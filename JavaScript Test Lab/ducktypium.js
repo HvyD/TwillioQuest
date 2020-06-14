@@ -1,45 +1,33 @@
 class Ducktypium {
-  constructor(color) {
-    // your code here
-    this.color = color;
-    this.calibrationSequence = [];
-  }
-
-  // your code here
-  refract(addColor){
-
-    try {
-    refract(addColor)
-    }
-    catch(e) {
-      if(this.color != 'red'){
-          throw new SyntaxError("Only Red, Green, Yellow!!");
+    constructor(color) {
+        this.color = color;
+        if (this.color != "red" && this.color != "blue" && this.color != "yellow") {
+            throw ("Color must be red, blue or yellow");
         }
-      if(this.color != 'green'){
-        throw new SyntaxError("Only Red, Green, Yellow!!");
-      }
-      if(this.color != 'yellow'){
-        throw new SyntaxError("Only Red, Green, Yellow!!");
-      }
-
-    }
-    finally {
-      if(this.color === ('red') && addColor === ('blue')) {
-        return 'purple';
-      }
-      else if (this.color === ('red') && addColor === ('yellow')){
-        return 'orange';
-      }
-      else if(this.color === ('yellow') && addColor === ('blue')){
-        return 'green';
-      }
-      else{return addColor};
+        this.calibrationSequence = [];
     }
 
 
-}
+    refract(color) {
+        if (color != "red" && color != "blue" && color != "yellow") {
+            throw ("Color must be red, blue or yellow");
+        } else if (this.color == color) {
+            return color;
+        } else if (this.color == "red" && color == "blue") {
+            return "purple";
+        } else if (this.color == "blue" && color == "red") {
+            return "purple";
+        } else if (this.color == "red" && color == "yellow") {
+            return "orange";
+        } else if (this.color == "yellow" && color == "red") {
+            return "orange";
+        } else if (this.color == "yellow" && color == "blue") {
+            return "green";
+        } else if (this.color == "blue" && color == "yellow") {
+            return "green";
+        }
 
-
+    }
     calibrate(arr) {
       arr.sort();
       this.calibrationSequence = arr.map(function(x) { return x * 3; });
@@ -53,7 +41,7 @@ class Ducktypium {
 
 // The following lines of code are not required for the solution, but can be
 // used by you to test your solution.
-const dt = new Ducktypium('red');
+const dt = new Ducktypium('black');
 
 console.log(dt.color); // prints 'red'
 
