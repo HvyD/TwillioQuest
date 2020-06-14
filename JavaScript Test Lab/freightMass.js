@@ -10,6 +10,9 @@ function calculateMass(freightItems) {
   using "reduce" is probably the most elegant solution!
   */
 
+  totalMass = freightItems.reduce((sum,char) => sum + char.length, 0);
+
+
   return totalMass;
 }
 
